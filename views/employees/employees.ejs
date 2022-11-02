@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Employees</title>
+</head>
+<body>
+    <% if (user.position !== "Administrator") {%> 
+        <h1>You are not allowed here <%= user.name %> </h1>
+        <form action="/" method="get">
+            <button type="submit">Go back to the menu</button>
+        </form>
+
+    <% } else { %> 
+    <form action="/" method="get">
+        <button type="submit">Go Back</button>
+    </form>
+
+    <form action="/employees/register" method="get">
+        <button type="submit">Register new employee</button>
+    </form>
+    <form action="/employees" method="post">
+        <label for="nameS">Search employee</label>
+        <input type="text" name="nameS" id="nameS">
+        <button type="submit">Search</button>
+    </form>
+    <form action="/employees" method="get">
+        <button type="submit">Retrieve all</button>
+    </form>
+
+    <h1>Employees:</h1>
+    <ul class="employees">
+        <% for(let i=0; i<employees.length; i++) {%>
+            <li class="employee">
+                <span>
+                    Nombre: <%= employees[i].name%> | Edad: <%= employees[i].age%> | Telefono <%= employees[i].phoneNumber %>  | ID <%= employees[i]._id %>
+                    <form action="/employees/<%=employees[i]._id%>?_method=DELETE" method="post">
+                        <button id="<%=employees[i]._id%>" type="submit">Delete</button>
+                    </form>
+                    <form action="/employees/<%=employees[i]._id%>" method="post">
+                        <button type="submit">Modify</button>
+                    </form>
+                    
+                </span> <!--Add buttons addressing their IDs-->
+            </li>
+        <%}%>
+    </ul>
+    <% } %> 
+</body>
+</html>

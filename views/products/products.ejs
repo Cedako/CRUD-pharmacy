@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Employees</title>
+</head>
+<body>
+    <form action="/" method="get">
+        <button type="menu">Go Back</button>
+    </form>
+    <form action="/products/register">
+        <button type="submit">Register</button>
+    </form>
+    <form action="/products" method="post">
+        <label for="nameS">Search products</label>
+        <input type="text" name="nameS" id="nameS">
+        <button type="submit">Search</button>
+    </form>
+    <form action="/products" method="get">
+        <button type="submit">Retrieve all</button>
+    </form>
+    <h1>Productos:</h1>
+    <ul class="products">
+        <% for(let i=0; i<products.length; i++) {%>
+            <li class="product">
+                <span>
+                    Nombre: <%= products[i].productName%> | Tipo: <%= products[i].type%> | Stock <%= products[i].quantity %> | Costo <%= products[i].cost %>   
+                    <form action="/products/<%=products[i]._id%>?_method=DELETE" method="post">
+                        <button id="<%=products[i]._id%>" type="submit">Delete</button>
+                    </form>
+                    <form action="/products/<%=products[i]._id%>" method="post">
+                        <button type="submit">Modify</button>
+                    </form>
+                </span> <!--Add buttons addressing their IDs-->
+            </li>
+        <%}%>
+    </ul>
+</body>
+</html>

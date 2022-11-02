@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket</title>
+</head>
+<body>
+    <form action="/buy" method="get">
+        <button type="submit">Back to tickets</button>
+    </form>
+    <h1>Employee: <%= ticket.employee.name %> </h1>
+
+    <h2>Product | Quantity | Cost</h2>
+        <% for(let i = 0; i<ticket.purchase.length; i++) {%>
+            <p>
+                <%= ticket.purchase[i].productName%> <%= ticket.purchase[i].quantity%> <%= ticket.purchase[i].cost%>
+            </p>
+        <% } %> 
+    <h2>Total: <%= ticket.totalCost %> </h2>
+    
+</body>
+</html>

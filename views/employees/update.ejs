@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update</title>
+</head>
+<body>
+    <h1>Update employee</h1>
+
+    <h3>Change information</h3>
+    <form action="/employees/<%=employees._id%>?_method=PUT" method="post">
+        <label for="position">Position:</label><br>
+        <input type="radio" value="Administrator" name="position" checked><label for="administrator">Administrator</label><br>
+        <input type="radio" value="Pharmacist" name="position" checked><label for="pharmacist">Pharmacist</label><br>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="<%=employees.name%>" required><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" value="<%=employees.password%>" readonly><br>
+        <label for="phoneNumber">Phone Number:</label>
+        <input type="number" id="phoneNumber" name="phoneNumber" value="<%=employees.phoneNumber%>" required><br>
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" value="<%=employees.age%>" required><br>
+        <button type="submit">Save changes</button>
+    </form>
+    <form action="/employees" method="get">
+        <button type="submit">Cancel</button>
+    </form>
+</body>
+</html>

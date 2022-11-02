@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Buy</title>
+</head>
+<body>
+    <form action="/" method="get">
+        <button type="submit">Go Back</button>
+    </form>
+    <%let total = 0;%> 
+
+    <h2>Employee: <%= user.name %></h2>
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-8">
+                <h1>Cart</h1>
+                <ul>
+                    <% for(let i = 0; i < ticket.length; i++) {%>
+                        <% total+=ticket[i].quantity*ticket[i].cost%> 
+                        <li>
+                            Product: <%= ticket[i].productName %> | Quantity: <%= ticket[i].quantity %> | Cost: <%= ticket[i].cost %>
+                        </li>
+                    <% } %>
+                </ul>
+                    
+                <form action="/buy/add" method="post">
+                    <label for="productName">Product:</label>
+                    <input type="text" id="productName" name="productName" required>
+                    <label for="productName">Quantity:</label>
+                    <input type="text" id="quantity" name="quantity" required>
+                    <label for="productName">Cost:</label>
+                    <input type="text" id="cost" name="cost" required>
+                    <button type="submit">Add to cart</button>
+                </form>
+                <form action="/buy/print" method="post">
+                    <label for="total">Costo total = </label>
+                    <input type="number" name="total" id="total" value="<%= total %>" readonly><br>
+                    <button type="submit">Print ticket</button>
+                </form>
+            </div>
+            <div class="col-4">
+                <h1>Product list</h1>
+                <ul class="products">
+                    <% for(let i = 0; i<products.length; i++) {%>
+                        <li class="product">
+                            <span>
+                                Product: <%= products[i].productName %> <br>
+                                In stock: <%= products[i].quantity %> <br>
+                                Cost (p/box): <%= products[i].cost %> <br>
+                            </span>
+                        </li>
+                    <% } %> 
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+    
+
+</body>
+</html>
