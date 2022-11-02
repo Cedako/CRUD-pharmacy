@@ -32,3 +32,5 @@ Dependencies you need to install:
  These dependencies are not used in this repository, but i recommend them since they can help in development:
  - body-parser
  - dotenv
+
+I will add more documentation i swear...
