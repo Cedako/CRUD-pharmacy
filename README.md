@@ -1,7 +1,7 @@
 # CRUD-pharmacy
 This is a simple homemade CRUD that uses MongoDB as database, it can perform CRUD operations for employees, medicines and tickets.
 
-Clone this repository: git clone https://github.com/Cedako/CRUD-pharmacy.git
+Clone this repository: ```git clone https://github.com/Cedako/CRUD-pharmacy.git```
 
 Replace the string inside server.js in the MONGODB_URI const to your mongodb URI so it connects to your database.
 
