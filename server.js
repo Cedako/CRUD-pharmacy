@@ -5,7 +5,7 @@ const methodOverride = require('method-override');
 const session = require('express-session');
 const flash = require('express-flash');
 const passport = require('passport');
-const MONGODB_URI = '<insert mongodb uri here>';
+const MONGODB_URI = 'mongodb+srv://Admin:Admin1@crud.ic0v6ve.mongodb.net/?retryWrites=true&w=majority';
 const employeeRouter = require('./routes/employeeRoutes');
 const productRouter = require('./routes/productRoutes');
 const ticketRouter = require('./routes/ticketRoute');
